@@ -1,0 +1,11 @@
+.content {
+  max-width: 100%;
+  margin: 0 0;
+  flex: 1;
+}
+
+@media (max-width: 917px) {
+  .content {
+    margin: 0 19px;
+  }
+}

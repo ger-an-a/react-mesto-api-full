@@ -1,0 +1,21 @@
+.profile__info {
+  display: grid;
+  grid-template-areas:
+  "avatar name edit"
+  "avatar activity activity";
+  grid-gap: 16px 18px;
+  align-items: end;
+  justify-content: center;
+}
+
+@media (max-width: 550px) {
+  .profile__info {
+    grid-template-areas:
+      "avatar avatar"
+      "name edit"
+      "activity activity";
+      grid-gap: 14px 10px;
+      justify-items: center;
+  }
+}
+

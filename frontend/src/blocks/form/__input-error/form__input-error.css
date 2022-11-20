@@ -1,0 +1,16 @@
+.form__input-error {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  color: #FF0000;
+  text-align: left;
+  width: 358px;
+  margin: 5px 0 0;
+}
+
+@media (max-width:430px) {
+  .form__input-error {
+    width: 238px;
+  }
+}

@@ -1,0 +1,9 @@
+.form__input_type_auth {
+    border-bottom: 2px solid #ccc;
+    background-color: #000;
+    color: #ccc;
+}
+
+.form__input_type_auth:focus {
+    border-bottom: 3px solid #fff;
+}

@@ -1,0 +1,7 @@
+.form__input_type_error {
+  border-bottom: 1px solid #FF0000;
+}
+
+.form__input_type_error:focus {
+  border-bottom: 3px solid #FF0000;
+}

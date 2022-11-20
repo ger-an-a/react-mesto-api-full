@@ -1,0 +1,7 @@
+.authentification__link {
+    text-decoration: none;
+}
+
+.authentification__link:hover {
+    opacity: .6;
+}
