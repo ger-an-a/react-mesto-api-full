@@ -19,6 +19,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
       credentials: 'include',
+      headers: this._headers,
     })
       .then(this._checkResponse)
   }
@@ -27,6 +28,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
       credentials: 'include',
+      headers: this._headers,
     })
       .then(this._checkResponse)
   }
@@ -74,6 +76,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
       credentials: 'include',
+      headers: this._headers,
     })
       .then(this._checkResponse)
   }
@@ -82,6 +85,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'GET',
       credentials: 'include',
+      headers: this._headers,
     })
       .then(this._checkResponse)
   }
@@ -90,6 +94,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       credentials: 'include',
+      headers: this._headers,
     })
       .then(this._checkResponse)
   }
