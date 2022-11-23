@@ -17,7 +17,7 @@ module.exports.getUsers = (req, res, next) => {
 module.exports.getUser = (req, res, next) => {
   User.findById(req.params.userId)
     .then((user) => {
-      if (user !== null) {
+      if (user) {
         res.send({ data: user });
       } else throw new NotFoundError();
     })
@@ -99,21 +99,21 @@ module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
   User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign(
-        { _id: user._id },
-        NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key',
-        { expiresIn: '7d' },
-      );
-      res
-        .cookie('jwt', token, {
-          maxAge: 3600000 * 24 * 7,
-          httpOnly: true,
-        })
-        .send({ massage: 'Успешно' });
+      if (user) {
+        const token = jwt.sign(
+          { _id: user._id },
+          NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key',
+          { expiresIn: '7d' },
+        );
+        res
+          .cookie('jwt', token, {
+            maxAge: 3600000 * 24 * 7,
+            httpOnly: true,
+          })
+          .send({ massage: 'Успешно' });
+      } else throw new LoginError();
     })
-    .catch(() => {
-      next(new LoginError());
-    });
+    .catch(next);
 };
 
 module.exports.logout = (req, res) => {
